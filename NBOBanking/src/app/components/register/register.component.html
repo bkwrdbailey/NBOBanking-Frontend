@@ -6,30 +6,30 @@
         <h3>Sign Up</h3>
         <div class="mb-2">
           <label for="registerUsername">Username</label>
-          <input type="text" class="form-control" placeholder="Username" id="registerUsername">
+          <input type="text" class="form-control" placeholder="Username" id="registerUsername" [ngModel]="userFormData.username">
         </div>
         <div class="mb-2">
           <label for="registerPassword">Password</label>
-          <input type="password" class="form-control" placeholder="Password" id="registerPassword">
+          <input type="password" class="form-control" placeholder="Password" id="registerPassword" [ngModel]="userFormData.password">
         </div>
         <div class="mb-2">
           <label for="registerFirstName">First Name</label>
-          <input type="text" class="form-control" placeholder="First name" id="registerFirstName">
+          <input type="text" class="form-control" placeholder="First name" id="registerFirstName" [ngModel]="userFormData.firstname">
         </div>
         <div class="mb-2">
           <label for="registerLastName">Last Name</label>
-          <input type="text" class="form-control" placeholder="Last name" id="registerLastName">
+          <input type="text" class="form-control" placeholder="Last name" id="registerLastName" [ngModel]="userFormData.lastname">
         </div>
         <div class="mb-2">
           <label for="registerEmail">Email</label>
-          <input type="email" class="form-control" placeholder="Email" id="registerEmail">
+          <input type="email" class="form-control" placeholder="Email" id="registerEmail" [ngModel]="userFormData.email">
         </div>
         <div>
           <label for="registerPhoneNum">Phone Number</label>
           <input type="tel" class="form-control" placeholder="Phone Number" id="registerPhoneNum">
         </div>
         <div class="d-flex justify-content-end mt-3">
-          <button class="btn btn-primary">Register</button>
+          <button class="btn btn-primary" (click)="attemptToRegister()">Register</button>
         </div>
       </form>
       <img class="col-md-6" src="../../assets/bank_signup.jpg">
