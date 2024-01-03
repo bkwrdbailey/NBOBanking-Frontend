@@ -1,0 +1,89 @@
+<!-- Currently open Bank Account's -->
+<div *ngIf="loggedIn">
+    <h3>Current Accounts</h3>
+    <div *ngIf="!hasAccounts">
+        <h4>No Accounts Available</h4>
+    </div>
+    <div *ngIf="hasAccounts">
+        <div *ngFor="let bankAccount of bankAccounts">
+            <h5>{{bankAccount.accountType}}</h5>
+            <h5>{{bankAccount.accountNum}}</h5>
+            <h5>{{bankAccount.balance}}</h5>
+        </div>
+    </div>
+</div>
+
+<!-- Bank Related Information -->
+<div style="display: flex; justify-content: center; margin-top: 100px;">
+    <div class="bankRltdInfo">
+        <div style="display: flex; justify-content: center;">
+            <img src="../../../assets/pictures/Customer_Services.png">
+        </div>
+        <div style="display: flex; justify-content: center;">
+            <h3 style="font-weight: bold; font-family: Inter;">Customer Services</h3>
+        </div>
+    </div>
+
+    <div class="bankRltdInfo">
+        <div style="display: flex; justify-content: center;">
+            <img src="../../../assets/pictures/FAQ.png">
+        </div>
+        <div style="display: flex; justify-content: center;">
+            <h3 style="font-weight: bold; font-family: Inter;">FAQ</h3>
+        </div>
+    </div>
+
+    <div class="bankRltdInfo">
+        <div style="display: flex; justify-content: center;">
+            <img src="../../../assets/pictures/Referral_Program.png">
+        </div>
+        <div style="display: flex; justify-content: center;">
+            <h3 style="font-weight: bold; font-family: Inter;">Referral/Sign On Program</h3>
+        </div>
+    </div>
+</div>
+
+<!-- Mock Articles -->
+<div style="display: flex; justify-content: center; margin-top: 100px;">
+    <div class="articleSection">
+        <div style="display: flex; justify-content: center; margin-bottom: 15px;">
+            <img style="border-radius: 5px;" width="250" height="120" src="../../../assets/pictures/Bank_Milestone.jpg">
+        </div>
+
+        <div style="display: flex; justify-content: center;">
+            <h4 style="font-weight: bold; font-family: Inter;">NBOBanking Reaches New Concurrent Customers Milestone</h4>
+        </div>
+        
+        <div style="display: flex; justify-content: center;">
+            <p style="font-weight: 400; font-family: Inter;">NBOBanking has hit a new record for concurrent customers using their services as the number has now reached one million concurrent users. This marks....</p>
+        </div>
+    </div>
+
+    <div class="articleSection">
+        <div style="display: flex; justify-content: center; margin-bottom: 15px;">
+            <img style="border-radius: 5px;" width="250" height="120" src="../../../assets/pictures/AI_Services.jfif">
+        </div>
+
+        <div style="display: flex; justify-content: center;">
+            <h4 style="font-weight: bold; font-family: Inter;">NBOBanking Planning To Introduce New AI Services</h4>
+        </div>
+
+        <div style="display: flex; justify-content: center;">
+            <p style="font-weight: 400; font-family: Inter;">With the increasing trend of AI in our modern climate it is not surprising to see that NBOBanking has been working on rolling out several new AI services that...</p>
+        </div>
+    </div>
+
+    <div class="articleSection">
+        <div style="display: flex; justify-content: center; margin-bottom: 15px;">
+            <img style="border-radius: 5px;" width="250" height="120" src="../../../assets/pictures/Delhi_Monument.jpg">
+        </div>
+
+        <div style="display: flex; justify-content: center;">
+            <h4 style="font-weight: bold; font-family: Inter;">New NBOBanking Location Opening In Delhi, India</h4>
+        </div>
+
+        <div style="display: flex; justify-content: center;">
+            <p style="font-weight: 400; font-family: Inter;">As NBOBanking has been adopted by more and more customers, it has allowed the business to expand to a new location within the beautiful city of Delhi, India which...</p>
+        </div>
+    </div>
+</div>
