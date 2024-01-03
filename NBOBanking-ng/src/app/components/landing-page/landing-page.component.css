@@ -1,0 +1,25 @@
+.bankRltdInfo {
+    border-radius: 8px;
+    border: 1px #9E9D9D solid;  
+    background-color: white;
+    cursor: pointer;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 10px;
+    width: 200px;
+}
+
+.bankRltdInfo:hover {
+    background-color: #e2e2e2;
+}
+
+.articleSection {
+    border-radius: 8px;
+    border: 1px #9E9D9D solid;
+    background-color: white;
+    padding: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    width: 300px;
+}

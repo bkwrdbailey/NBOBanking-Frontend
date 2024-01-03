@@ -1,0 +1,55 @@
+<nav>
+    <div style="margin-right: 90px;">
+        <a style="cursor: pointer; display: flex; text-decoration: none;" routerLink="/home">
+            <img style="margin: auto 0" width="50px" height="50px" src="../assets/pictures/NBOBanking_Logo.png"> 
+            <h2 style="font-size: 25px; color: #FF7777; margin: auto 0; font-family: Inter;">NBOBanking</h2>
+        </a>
+    </div>
+
+    <div style="display:flex; justify-content: center;">
+        <h3 style="margin: auto 0; font-size: 26px;" class="navBarTab">|</h3>
+
+        <button style="margin: auto 0;" mat-button [matMenuTriggerFor]="checkingMenu" class="navBarTab">Checking</button>
+        <mat-menu #checkingMenu="matMenu" yPosition="below">
+            <button mat-menu-item>Checking Account</button>
+        </mat-menu>
+
+        <h3 style="margin: auto 0; font-size: 26px;" class="navBarTab">|</h3>
+
+        <button style="margin: auto 0;" mat-button [matMenuTriggerFor]="savingsMenu" class="navBarTab">Savings</button>
+        <mat-menu #savingsMenu="matMenu" yPosition="below">
+            <button mat-menu-item>Savings Account</button>
+        </mat-menu>
+
+        <h3 style="margin: auto 0; font-size: 26px;" class="navBarTab">|</h3>
+
+        <button style="margin: auto 0;" mat-button [matMenuTriggerFor]="loansMenu" class="navBarTab">Loans</button>
+        <mat-menu #loansMenu="matMenu" yPosition="below">
+            <button mat-menu-item>Personal Loans</button>
+            <button mat-menu-item>Home Loans</button>
+            <button mat-menu-item>Student Loans</button>
+        </mat-menu>
+
+        <h3 style="margin: auto 30px auto 0; font-size: 26px;" class="navBarTab">|</h3>
+    </div>
+
+    <button *ngIf="!loggedIn" mat-raised-button routerLink="/login" style="background-color: #76B7FF; color: white; margin: auto 30px auto 120px; font-size: 16px; font-family: Inter !important;">Login</button>
+    <div *ngIf="loggedIn" style="margin: auto 30px auto 120px; display: flex;">
+        <a style="cursor: pointer;" [matMenuTriggerFor]="profileMenu"><img style="border: 1px solid black; border-radius: 50%;" width="50" height="50" src="../assets/pictures/Profile.png"></a>
+        <h4 style="margin: auto 0px auto 20px; font-weight: 500; font-family: Inter;">Bailey Tyler Barton</h4>
+        <mat-menu #profileMenu="matMenu" yPosition="below">
+            <button mat-menu-item routerLink="/profile">Profile</button>
+            <button mat-menu-item (click)="signUserOut()" routerLink="/home">Sign Out</button>
+        </mat-menu>
+    </div>
+</nav>
+
+<router-outlet></router-outlet>
+
+<footer>
+    <p style="margin: auto 0; text-decoration: none; font-family: Inter;">Icons borrowed from</p> <a href="https://www.flaticon.com" target="_blank" title="piggy bank icons" style="margin: auto 0; text-decoration: none; font-family: Inter;">&nbsp; Flaticon &nbsp;</a> <span style="margin: auto 0; text-decoration: none; font-family: Inter;"> and </span> <a style="margin: auto 0; text-decoration: none; font-family: Inter;" target="_blank" href="https://icons8.com">&nbsp; Icons8 </a>
+    <a href="https://github.com/bkwrdbailey" target="_blank" style="margin: auto 15px auto 50px;"><img width="26px" height="26px" src="../assets/pictures/Linkedin_Logo.jfif"></a>
+    <a href="https://github.com/bkwrdbailey" target="_blank" style="margin: auto 10px auto 10px;"><img width="46px" height="26px" src="../assets/pictures/Twitter_Logo.jpg"></a>
+    <a href="https://github.com/bkwrdbailey" target="_blank" style="margin: auto 50px auto 10px;"><img width="46px" height="26px" src="../assets/pictures/Github_Logo.jfif"></a>
+    <h5 style="font-size: 15px; font-weight: 500; margin: auto 0; font-family: Inter;">©2023 NBOBanking</h5>
+</footer>

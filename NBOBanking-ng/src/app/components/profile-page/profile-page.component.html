@@ -1,0 +1,50 @@
+<div style="display: flex; justify-content: center;">
+    <div style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 8px; padding: 20px; background-color: white; margin-top: 50px; margin-bottom: 339px;">
+        <div style="display: flex;">
+            <h2 style="font-weight: 500; font-family: Inter !important;">Account Settings</h2>
+            <button mat-raised-button *ngIf="!isEditable" style="background-color: #76B7FF; color: white; font-size: 16px; margin-left: 20px; font-family: Inter !important;" (click)="isEditable = !isEditable">Edit Info</button>
+        </div>
+
+        <div style="border-bottom: 1px solid grey; margin-bottom: 20px;">
+            <h4 style="font-weight: 700; font-family: Inter !important;">Email</h4>
+            <h4 style="font-weight: 500; font-family: Inter !important;" *ngIf="!isEditable">Personal Email: test&#64;gmail.com</h4>
+            <mat-form-field *ngIf="isEditable">
+                <mat-label style="font-family: Inter !important;">Email</mat-label>
+                <input matInput value="test@gmail.com">
+            </mat-form-field>
+        </div>
+
+        <div style="border-bottom: 1px solid grey; margin-bottom: 20px;">
+            <h4 style="font-weight: 700; font-family: Inter !important;">Addresses</h4>
+            <h4 style="font-weight: 500; font-family: Inter !important;" *ngIf="!isEditable">Home Address: test&#64;gmail.com</h4>
+            <h4 style="font-weight: 500; font-family: Inter !important;" *ngIf="!isEditable">Mailing Address: test&#64;gmail.com</h4>
+            <mat-form-field *ngIf="isEditable">
+                <mat-label style="font-family: Inter !important;">Home Address</mat-label>
+                <input matInput value="Home Location, 12345">
+            </mat-form-field>
+            <mat-form-field *ngIf="isEditable" style="margin-left: 10px;">
+                <mat-label style="font-family: Inter !important;">Mailing Address</mat-label>
+                <input matInput value="Home Location, 12345">
+            </mat-form-field>
+        </div>
+        
+        <div>
+            <h4 style="font-weight: 700; font-family: Inter !important;">Phone Numbers</h4>
+            <h4 style="font-weight: 500; font-family: Inter !important;" *ngIf="!isEditable">Home Phone: 123-456-7890</h4>
+            <h4 style="font-weight: 500; font-family: Inter !important;" *ngIf="!isEditable">Mobile Phone: 123-456-7890</h4>
+            <mat-form-field *ngIf="isEditable">
+                <mat-label style="font-family: Inter !important;">Home Phone</mat-label>
+                <input matInput value="123-456-7890">
+            </mat-form-field>
+            <mat-form-field *ngIf="isEditable" style="margin-left: 10px;">
+                <mat-label style="font-family: Inter !important;">Mobile Phone</mat-label>
+                <input matInput value="123-456-7890">
+            </mat-form-field>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end;">
+            <button mat-raised-button *ngIf="isEditable" style="background-color: #76B7FF; color: white; font-size: 16px; margin-left: 20px; font-family: Inter !important;" (click)="resetChanges()">Cancel</button>
+            <button mat-raised-button *ngIf="isEditable" style="background-color: #76B7FF; color: white; font-size: 16px; margin-left: 20px; font-family: Inter !important;" (click)="updateProfileInfo()">Save</button>
+        </div>
+    </div>
+</div>

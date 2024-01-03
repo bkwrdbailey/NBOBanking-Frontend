@@ -1,0 +1,146 @@
+<!-- Account Login Section -->
+<div *ngIf="!signingUp" style="display: flex; justify-content: space-between;">
+    <!-- Left Side -->
+    <div flex="33">
+        <img style="display: block;" width="360" height="281" src="../../../assets/pictures/Happy_Family_Two.jpg">
+        <img style="display: block;" width="360" height="281" src="../../../assets/pictures/Happy_Family_Three.jpg">
+        <img style="display: block;" width="360" height="281" src="../../../assets/pictures/Happy_Family_One.jpg">
+        <!-- <img style="display: block;" width="300" height="211" src="../../../assets/pictures/Happy_Family_Four.jpg"> -->
+    </div>
+    
+    <!-- Middle -->
+    <div flex="33" style="padding: 100px 40px 0px 40px;">
+    
+        <!-- Login Box -->
+        <div style="display: flex; justify-content: center;">
+            <form style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 8px; padding: 20px; background-color: white; display: block;">
+                <mat-form-field style="display: block;">
+                    <mat-label style="font-family: Inter !important;">Username</mat-label>
+                    <input matInput>
+                    <mat-error>Username is required</mat-error>
+                    <mat-error>Username entered is incorrect</mat-error>
+                </mat-form-field>
+                <mat-form-field style="display: block;">
+                    <mat-label style="font-family: Inter !important;">Password</mat-label>
+                    <input matInput>
+                    <mat-error>Password is required</mat-error>
+                    <mat-error>Password entered is incorrect</mat-error>
+                </mat-form-field>
+                <button class="linkButton">Forgot Password</button>
+                <button mat-raised-button style="background-color: #76B7FF; color: white; font-size: 16px; margin-left: 20px; font-family: Inter !important;">Login</button>
+            </form>
+
+        </div>
+
+        <div style="display: flex; justify-content: center; margin-top: 10px;">
+            Do not have an account? <button class="linkButton" (click)="signingUp = !signingUp">Create Account</button>
+        </div>
+    
+        <!-- Mission Statement Section -->
+        <div>
+            <div style="border-radius: 8px; border: 1px #9E9D9D solid; margin-top: 100px; padding: 10px 50px; background-color: white;">
+                <h3 style="display: flex; justify-content: center; font-size: 24px; font-weight: bold; font-family: Inter;">Mission Statement</h3>
+                <p style="display: flex; justify-content: center; font-size: 16px; font-weight: bold; font-family: Inter; text-align: center; padding-top: 20px;">
+                    We are dedicated to delivering the best banking service we can<br> 
+                    provide as we have been in the same shoes as you,<br> 
+                    looking for the best bank to manage our finances,<br> 
+                    but there is No Better Option then NBO Banking.</p>
+            </div>
+        </div>
+    
+    </div>
+    
+    <!-- Right Side -->
+    <div flex="33" style="align-items: flex-end;">
+        <img style="display: block;" width="360" height="281" src="../../../assets/pictures/Happy_Family_Four.jpg">
+        <img style="display: block;" width="360" height="281" src="../../../assets/pictures/Happy_Family_Three.jpg">
+        <img style="display: block;" width="360" height="281" src="../../../assets/pictures/Happy_Family_Two.jpg">
+        <!-- <img style="display: block;" width="300" height="211" src="../../../assets/pictures/Happy_Family_One.jpg"> -->
+    </div>
+</div>
+
+
+
+<!-- Account Signup Section -->
+<div *ngIf="signingUp" style="display: flex; justify-content: space-between;">
+    <!-- Left Side -->
+    <div flex="33">
+        <img style="display: block;" width="360" height="281" src="../../../assets/pictures/Happy_Family_Two.jpg">
+        <img style="display: block;" width="360" height="281" src="../../../assets/pictures/Happy_Family_Three.jpg">
+        <img style="display: block;" width="360" height="281" src="../../../assets/pictures/Happy_Family_One.jpg">
+        <!-- <img style="display: block;" width="300" height="211" src="../../../assets/pictures/Happy_Family_Four.jpg"> -->
+    </div>
+    
+    <!-- Middle -->
+    <div flex="33" style="padding: 100px 40px 0px 40px;">
+    
+        <!-- Login Box -->
+        <div style="display: flex; justify-content: center;">
+            <form style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 8px; padding: 20px; background-color: white;">
+                <mat-form-field style="display: block;">
+                    <mat-label style="font-family: Inter !important;">Username</mat-label>
+                    <input matInput>
+                    <mat-error>Username field is required</mat-error>
+                    <mat-error>Username entered is unavailable</mat-error>
+                    <mat-error>Username must be at least 8 characters long</mat-error>
+                </mat-form-field>
+                <div style="display: flex;">
+                    <mat-form-field style="display: block; margin-right: 10px;">
+                        <mat-label style="font-family: Inter !important;">Password</mat-label>
+                        <input matInput>
+                        <mat-error>Password field is required</mat-error>
+                        <mat-error>Password must have at least one special character (ex. !, &#64;, #, $)</mat-error>
+                        <mat-error>Password must have at least one number</mat-error>
+                        <mat-error>Password must have at least one capital letter</mat-error>
+                    </mat-form-field>
+                    <mat-form-field style="display: block;">
+                        <mat-label style="font-family: Inter !important;">Reenter Password</mat-label>
+                        <input matInput>
+                        <mat-error>Reenter Password field is required</mat-error>
+                        <mat-error>Must match entered password</mat-error>
+                    </mat-form-field>
+                </div>
+                <mat-form-field style="display: block;">
+                    <mat-label style="font-family: Inter !important;">Email</mat-label>
+                    <input matInput>
+                    <mat-error>Email field is required</mat-error>
+                </mat-form-field>
+                <mat-form-field style="display: block;">
+                    <mat-label style="font-family: Inter !important;">Personal Phone</mat-label>
+                    <input matInput>
+                    <mat-error>At least one phone number field is required</mat-error>
+                </mat-form-field>
+                <mat-form-field style="display: block;">
+                    <mat-label style="font-family: Inter !important;">Home Phone</mat-label>
+                    <input matInput>
+                    <mat-error>At least one phone number field is required</mat-error>
+                </mat-form-field>
+                <mat-form-field style="display: block;">
+                    <mat-label style="font-family: Inter !important;">Home Address</mat-label>
+                    <input matInput>
+                    <mat-error>Home Address field is required</mat-error>
+                </mat-form-field>
+                <mat-form-field style="display: block;">
+                    <mat-label style="font-family: Inter !important;">Mailing Address</mat-label>
+                    <input matInput>
+                    <mat-error>Home Address field is required</mat-error>
+                </mat-form-field>
+                <div style="display: flex; justify-content: flex-end;">
+                    <button mat-raised-button style="background-color: #76B7FF; color: white; font-size: 16px; margin-left: 20px; font-family: Inter !important;" (click)="attemptToSignUp()">Sign Up</button>
+                </div>
+            </form>
+        </div>
+
+        <div style="display: flex; justify-content: center; margin-top: 10px;">
+            Do you have an account? <button class="linkButton" (click)="signingUp = !signingUp">Login Here</button>
+        </div>
+    </div>
+    
+    <!-- Right Side -->
+    <div flex="33" style="align-items: flex-end;">
+        <img style="display: block;" width="360" height="281" src="../../../assets/pictures/Happy_Family_Four.jpg">
+        <img style="display: block;" width="360" height="281" src="../../../assets/pictures/Happy_Family_Three.jpg">
+        <img style="display: block;" width="360" height="281" src="../../../assets/pictures/Happy_Family_Two.jpg">
+        <!-- <img style="display: block;" width="300" height="211" src="../../../assets/pictures/Happy_Family_One.jpg"> -->
+    </div>
+</div>

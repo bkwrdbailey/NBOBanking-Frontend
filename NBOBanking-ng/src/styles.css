@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: "Inter";
+    src: url("./assets/fonts/Inter-VariableFont_slnt\,wght.ttf") format("truetype");
+}
+
+html, body { height: 100%; }
+body { 
+    margin: 0; 
+    font-family: "Inter" !important;
+    background-color: #F5F5F5;
+}
+
+div {
+    font-family: "Inter" !important;
+}
