@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>Login</h1>
+<div mat-dialog-content>
+    <mat-form-field style="display: block;">
+        <mat-label style="font-family: Inter;">Username</mat-label>
+        <input [(ngModel)]="data.username" matInput>
+        <mat-error>Username is required</mat-error>
+        <mat-error>Username entered is incorrect</mat-error>
+    </mat-form-field>
+    <mat-form-field style="display: block;">
+        <mat-label style="font-family: Inter;">Password</mat-label>
+        <input [(ngModel)]="data.password" matInput>
+        <mat-error>Password is required</mat-error>
+        <mat-error>Password entered is incorrect</mat-error>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions style="display: flex; justify-content: flex-end;">
+  <button mat-raised-button style="background-color: #76B7FF; color: white; font-size: 16px; font-family: Inter;" (click)="onNoClick()">Cancel</button>
+  <button mat-raised-button style="background-color: #76B7FF; color: white; font-size: 16px; font-family: Inter;" (click)="attemptToLogin(data.username, data.password)">Login</button>
+</div>

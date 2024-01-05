@@ -1,1 +1,60 @@
-<p>bank-account works!</p>
+<div style="margin-top: 20px;">
+    <h1 *ngIf="showCheckingAccounts" style="font-weight: 500; font-family: Inter; margin-left: 20px;">Checking Accounts <button mat-raised-button (click)="initiateNewAccountRequest(checking)" style="background-color: #76B7FF; color: white; font-size: 16px; margin-left: 20px; font-family: Inter">New Checking Account</button></h1>
+    <h1 *ngIf="!showCheckingAccounts" style="font-weight: 500; font-family: Inter; margin-left: 20px;">Saving Accounts <button mat-raised-button (click)="initiateNewAccountRequest(savings)" style="background-color: #76B7FF; color: white; font-size: 16px; margin-left: 20px; font-family: Inter">New Savings Account</button></h1>
+
+    <!-- Current Open Accounts -->
+    <div style="display: inline-flex; padding-left: 20px; padding-right: 20px;">
+        <!-- Checking Accounts -->
+        <div *ngIf="showCheckingAccounts">
+            <div *ngFor="let checking of checkingAccounts" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 8px; background-color: white; padding: 20px; margin-bottom: 20px;">
+                <h3 style="font-weight: 500; font-family: Inter;">Account Num: ({{checking.accountNum}})</h3>
+                <h3 style="font-weight: 500; font-family: Inter;">Balance: ${{checking.balance}}</h3>
+                <div style="display: flex; justify-content: center;">
+                    <button (click)="showTransactionHistory(checking.transactionHistory)" class="linkButton">View Transactions</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Saving Accounts -->
+        <div *ngIf="!showCheckingAccounts" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 8px; background-color: white; padding: 20px;">
+            <div *ngFor="let saving of savingAccounts" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 8px; background-color: white; padding: 20px; margin-bottom: 20px;">
+                <h3 style="font-weight: 500; font-family: Inter;">Account Num: ({{saving.accountNum}})</h3>
+                <h3 style="font-weight: 500; font-family: Inter;">Balance: ${{saving.balance}}</h3>
+                <div style="display: flex; justify-content: center;">
+                    <button (click)="showTransactionHistory(saving.transactionHistory)" class="linkButton">View Transactions</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Account Transaction History -->
+    <div style="display: inline-flex;">
+        <div style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 8px; background-color: white; padding: 20px; margin-left: 300px;">
+            <h2 style="font-weight: 500; font-family: Inter;">Transaction History</h2>
+            <div *ngIf="currTransactions.length == 0">
+                <h3>There are no transactions to show</h3>
+            </div>
+            <div *ngFor="let transaction of currTransactions">
+                <div *ngIf="transaction.amount != null" style="border-top: 1px solid lightgrey; padding: 20px 10px; font-size: 15px;">
+                    <span style="font-weight: 500; font-family: Inter; font-size: 16px;">Amount:</span> ${{transaction.amount}} | <span style="font-weight: 500; font-family: Inter; font-size: 16px;">Description:</span> {{transaction.description}} | <span style="font-weight: 500; font-family: Inter; font-size: 16px;">To:</span> {{transaction.transactionTo}} | <span style="font-weight: 500; font-family: Inter; font-size: 16px;">From:</span> {{transaction.transactionFrom}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- New Account Request -->
+<div *ngIf="requestingNewAcct" style="display: flex; justify-content: center; padding-bottom: 20px;">
+    <div style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 8px; background-color: white; padding: 20px;">
+        <h2>Step: 1 </h2>
+        <label>Existing User:</label>
+        <mat-radio-group [(ngModel)]="isExistingUser">
+            <mat-radio-button [value]="true">Yes</mat-radio-button>
+            <mat-radio-button [value]="false">No</mat-radio-button>
+        </mat-radio-group>
+        <div style="display: flex; justify-content: flex-end; padding-top: 20px;">
+            <button *ngIf="isExistingUser" mat-raised-button (click)="openLoginDialog()" style="background-color: #76B7FF; color: white; font-size: 16px; margin-left: 20px; font-family: Inter;">Next</button>
+            <button *ngIf="!isExistingUser" mat-raised-button style="background-color: #76B7FF; color: white; font-size: 16px; margin-left: 20px; font-family: Inter;">Next</button>
+        </div>
+    </div>
+</div>

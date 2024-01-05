@@ -4,6 +4,6 @@ export interface Account {
     accountId: number;
     accountType: string
     accountNum: string;
-    balance: number;
+    balance: string;
     transactionHistory: Transaction[];
 }

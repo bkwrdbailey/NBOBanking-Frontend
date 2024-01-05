@@ -1,1 +1,97 @@
-<p>loans-page works!</p>
+<div style="padding-top: 20px; padding-left: 20px;">
+    <h1 *ngIf="isPersonalLoan" style="font-weight: 500; font-family: Inter;">Personal Loan <button *ngIf="!isNewLoan" mat-raised-button style="background-color: #76B7FF; color: white; font-size: 16px; margin-left: 20px; font-family: Inter;" (click)="newLoanRequest()">Apply for Loan</button></h1>
+    <h1 *ngIf="isHomeLoan" style="font-weight: 500; font-family: Inter;">Home Loan <button *ngIf="!isNewLoan" mat-raised-button style="background-color: #76B7FF; color: white; font-size: 16px; margin-left: 20px; font-family: Inter;" (click)="newLoanRequest()">Apply for Loan</button></h1>
+    <h1 *ngIf="isAutoLoan" style="font-weight: 500; font-family: Inter;">Auto Loan <button *ngIf="!isNewLoan" mat-raised-button style="background-color: #76B7FF; color: white; font-size: 16px; margin-left: 20px; font-family: Inter;" (click)="newLoanRequest()">Apply for Loan</button></h1>
+
+    <!-- Current Loans -->
+    <div *ngIf="currentLoans.length > 0 && !isNewLoan" style="display: flex; justify-content: center; margin-bottom: 20px;">
+        <div style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 8px; padding: 20px; background-color: white;">
+            <h2 style="font-weight: 500; font-family: Inter;">Current Loans</h2>
+            <div *ngFor="let loan of currentLoans">
+                <div style="border-top: 1px solid lightgrey; padding: 20px 10px; font-size: 15px;">
+                    <span style="font-weight: 500; font-family: Inter; font-size: 16px;">Loan Amount:</span> ${{loan.totalAmount}} | <span style="font-weight: 500; font-family: Inter; font-size: 16px;">Request Reason:</span> {{loan.requestReason}} | <span style="font-weight: 500; font-family: Inter; font-size: 16px;">Months Left:</span> {{loan.totalMonths}} | <span style="font-weight: 500; font-family: Inter; font-size: 16px;">Current Payment Plan:</span> <span *ngIf="loan.paymentPlan.onAutoPay"> Auto Pay</span> <span *ngIf="!loan.paymentPlan.onAutoPay"> Monthly</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loan Description -->
+    <div *ngIf="!isNewLoan" style="display: flex; justify-content: center; margin-bottom: 20px;">
+        <div *ngIf="isPersonalLoan" style="width: 500px; border: 1px #9E9D9D solid; border-radius: 8px; background-color: white;">
+            <div style="display: flex; justify-content: center; margin-bottom: 20px;">
+                <img style="border-radius: 5px;" width="500px" height="300px" src="../../../assets/pictures/Personal_Loan_Family.jfif">
+            </div>
+            <div>
+                <p style="text-align: center; font-weight: 500; font-family: Inter; font-size: 16px;">Have any new appliances in mind that may be out of your current budget or want to gather all of your debt under one single payment plan? Then our Personal Loans are the way to go!</p>
+            </div>
+        </div>
+        <div *ngIf="isHomeLoan" style="width: 500px; border: 1px #9E9D9D solid; border-radius: 8px; background-color: white;">
+            <div style="display: flex; justify-content: center; margin-bottom: 20px;">
+                <img style="border-radius: 5px;" width="500px" height="300px" src="../../../assets/pictures/Home_Loan_House.jpg">
+            </div>
+            <div>
+                <p style="text-align: center; font-weight: 500; font-family: Inter; font-size: 16px;">Do you have an eye on a nice new house to hold you family and future generations to come? Then get started setting up your family for generations to come with a Home Loan through us!</p>
+            </div>
+        </div>
+        <div *ngIf="isAutoLoan" style="width: 500px; border: 1px #9E9D9D solid; border-radius: 8px; background-color: white;">
+            <div style="display: flex; justify-content: center; margin-bottom: 20px;">
+                <img style="border-radius: 5px;" width="500px" height="300px" src="../../../assets/pictures/Auto_Loan_Car.jfif">
+            </div>
+            <div>
+                <p style="text-align: center; font-weight: 500; font-family: Inter; font-size: 16px;">Are you getting your first car, but can't afford to pay it all of in one go? Or maybe you want to get a new car for yourself or someone else? Then an Auto Loan through us wil help you with this!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- New Loan Request -->
+<div *ngIf="isNewLoan" style="display: flex; justify-content: center; padding-bottom: 20px;">
+    <form style="width: 500px; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 8px; background-color: white; padding: 30px;">
+        <h2 style="font-weight: 500; font-family: Inter;">Loan Request</h2>
+        <mat-form-field style="margin-bottom: 10px; margin-right: 10px;">
+            <mat-label>Loan Amount</mat-label>
+            <input matInput [(ngModel)]="amount" [formControl]="loanAmt">
+            @if (loanAmt.hasError('required')) {
+                <mat-error>Loan Amount is <span style="font-weight: 700;">required</span></mat-error>
+            }
+        </mat-form-field>
+        <mat-form-field style="margin-bottom: 10px;">
+            <mat-label>Payment Option</mat-label>
+            <mat-select [(ngModel)]="paymentOption" [formControl]="pymntOpt">
+                <mat-option value="autopay">Auto Pay</mat-option>
+                <mat-option value="monthly">Monthly Billing</mat-option>
+            </mat-select>
+            @if (pymntOpt.hasError('required')) {
+                <mat-error>Payment Option is <span style="font-weight: 700;">required</span></mat-error>
+            }
+        </mat-form-field>
+        <mat-form-field style="margin-bottom: 10px; margin-right: 10px;">
+            <mat-label>Loan Length</mat-label>
+            <mat-select [(ngModel)]="selectedMonths" [formControl]="totalMonths">
+                <mat-option value="12">12</mat-option>
+                <mat-option value="24">24</mat-option>
+                <mat-option value="36">36</mat-option>
+                <mat-option value="48">48</mat-option>
+                <mat-option value="60">60</mat-option>
+                <mat-option value="72">72</mat-option>
+            </mat-select>
+            @if (totalMonths.hasError('required')) {
+                <mat-error>Selection is <span style="font-weight: 700;">required</span></mat-error>
+            }
+        </mat-form-field>
+        <mat-form-field style="margin-bottom: 10px;">
+            <mat-label>Purpose of Loan</mat-label>
+            <mat-select [(ngModel)]="loanPurpose" [formControl]="purpose">
+                <mat-option value="debt consolidation">Debt Consolidation</mat-option>
+                <mat-option value="emergency expenses">Emergency Expenses</mat-option>
+                <mat-option value="appliance purchases">Appliance Purchases</mat-option>
+            </mat-select>
+            @if (purpose.hasError('required')) {
+                <mat-error>Selection is <span style="font-weight: 700;">required</span></mat-error>
+            }
+        </mat-form-field>
+        <div style="display: flex; justify-content: flex-end;">
+            <button mat-raised-button style="background-color: #76B7FF; color: white; font-size: 16px; margin-left: 20px; font-family: Inter;">Submit</button>
+        </div>
+    </form>
+</div>

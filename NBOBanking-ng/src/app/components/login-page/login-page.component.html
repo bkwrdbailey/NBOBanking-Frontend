@@ -11,23 +11,23 @@
     <!-- Middle -->
     <div flex="33" style="padding: 100px 40px 0px 40px;">
     
-        <!-- Login Box -->
+        <!-- Login Form -->
         <div style="display: flex; justify-content: center;">
-            <form style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 8px; padding: 20px; background-color: white; display: block;">
+            <form [formGroup]="loginData" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 8px; padding: 20px; background-color: white; display: block;">
                 <mat-form-field style="display: block;">
-                    <mat-label style="font-family: Inter !important;">Username</mat-label>
-                    <input matInput>
+                    <mat-label style="font-family: Inter;">Username</mat-label>
+                    <input formControlName="username" matInput>
                     <mat-error>Username is required</mat-error>
                     <mat-error>Username entered is incorrect</mat-error>
                 </mat-form-field>
                 <mat-form-field style="display: block;">
-                    <mat-label style="font-family: Inter !important;">Password</mat-label>
-                    <input matInput>
+                    <mat-label style="font-family: Inter;">Password</mat-label>
+                    <input formControlName="password" matInput>
                     <mat-error>Password is required</mat-error>
                     <mat-error>Password entered is incorrect</mat-error>
                 </mat-form-field>
                 <button class="linkButton">Forgot Password</button>
-                <button mat-raised-button style="background-color: #76B7FF; color: white; font-size: 16px; margin-left: 20px; font-family: Inter !important;">Login</button>
+                <button mat-raised-button style="background-color: #76B7FF; color: white; font-size: 16px; margin-left: 20px; font-family: Inter;">Login</button>
             </form>
 
         </div>
@@ -72,67 +72,92 @@
     </div>
     
     <!-- Middle -->
-    <div flex="33" style="padding: 100px 40px 0px 40px;">
+    <div flex="33" style="padding: 50px 40px 0px 40px;">
     
-        <!-- Login Box -->
+        <!-- Signup Form -->
         <div style="display: flex; justify-content: center;">
-            <form style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 8px; padding: 20px; background-color: white;">
+            <form [formGroup]="signupData" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 8px; padding: 20px; background-color: white;">
                 <mat-form-field style="display: block;">
-                    <mat-label style="font-family: Inter !important;">Username</mat-label>
-                    <input matInput>
+                    <mat-label style="font-family: Inter;">Username</mat-label>
+                    <input formControlName="username" matInput>
                     <mat-error>Username field is required</mat-error>
                     <mat-error>Username entered is unavailable</mat-error>
                     <mat-error>Username must be at least 8 characters long</mat-error>
                 </mat-form-field>
                 <div style="display: flex;">
                     <mat-form-field style="display: block; margin-right: 10px;">
-                        <mat-label style="font-family: Inter !important;">Password</mat-label>
-                        <input matInput>
+                        <mat-label style="font-family: Inter;">Password</mat-label>
+                        <input formControlName="password" matInput>
                         <mat-error>Password field is required</mat-error>
                         <mat-error>Password must have at least one special character (ex. !, &#64;, #, $)</mat-error>
                         <mat-error>Password must have at least one number</mat-error>
                         <mat-error>Password must have at least one capital letter</mat-error>
                     </mat-form-field>
                     <mat-form-field style="display: block;">
-                        <mat-label style="font-family: Inter !important;">Reenter Password</mat-label>
-                        <input matInput>
+                        <mat-label style="font-family: Inter;">Reenter Password</mat-label>
+                        <input formControlName="reenterPassword" matInput>
                         <mat-error>Reenter Password field is required</mat-error>
                         <mat-error>Must match entered password</mat-error>
                     </mat-form-field>
                 </div>
+                <div style="display: flex;">
+                    <mat-form-field style="display: block; margin-right: 10px;">
+                        <mat-label style="font-family: Inter;">First Name</mat-label>
+                        <input formControlName="firstName" matInput>
+                        <mat-error>First Name field is required</mat-error>
+                    </mat-form-field>
+                    <mat-form-field style="display: block; margin-right: 10px;">
+                        <mat-label style="font-family: Inter;">Middle Name (optional)</mat-label>
+                        <input formControlName="middleName" matInput>
+                    </mat-form-field>
+                    <mat-form-field style="display: block;">
+                        <mat-label style="font-family: Inter;">Last Name</mat-label>
+                        <input formControlName="lastName" matInput>
+                        <mat-error>Last Name field is required</mat-error>
+                    </mat-form-field>
+                </div>
                 <mat-form-field style="display: block;">
-                    <mat-label style="font-family: Inter !important;">Email</mat-label>
-                    <input matInput>
+                    <mat-label style="font-family: Inter;">Email</mat-label>
+                    <input formControlName="email" matInput>
                     <mat-error>Email field is required</mat-error>
                 </mat-form-field>
+                <div style="display: flex;">
+                    <mat-form-field style="display: block; margin-right: 10px;">
+                        <mat-label style="font-family: Inter;">Personal Phone</mat-label>
+                        <input formControlName="personalPhone" matInput>
+                        <mat-error>Personal Phone field is required</mat-error>
+                    </mat-form-field>
+                    <mat-form-field style="display: block;">
+                        <mat-label style="font-family: Inter;">Home Phone (optional)</mat-label>
+                        <input formControlName="homePhone" matInput>
+                    </mat-form-field>
+                </div>
                 <mat-form-field style="display: block;">
-                    <mat-label style="font-family: Inter !important;">Personal Phone</mat-label>
-                    <input matInput>
-                    <mat-error>At least one phone number field is required</mat-error>
-                </mat-form-field>
-                <mat-form-field style="display: block;">
-                    <mat-label style="font-family: Inter !important;">Home Phone</mat-label>
-                    <input matInput>
-                    <mat-error>At least one phone number field is required</mat-error>
-                </mat-form-field>
-                <mat-form-field style="display: block;">
-                    <mat-label style="font-family: Inter !important;">Home Address</mat-label>
-                    <input matInput>
+                    <mat-label style="font-family: Inter;">Home Address</mat-label>
+                    <textarea formControlName="homeAddress" matInput></textarea>
                     <mat-error>Home Address field is required</mat-error>
                 </mat-form-field>
-                <mat-form-field style="display: block;">
-                    <mat-label style="font-family: Inter !important;">Mailing Address</mat-label>
-                    <input matInput>
-                    <mat-error>Home Address field is required</mat-error>
+                <section>
+                    <label>Is the Mailing address the same as the home address?</label>
+                    <mat-radio-group [(ngModel)]="isMailingAddressSame" formControlName="sameAddress">
+                        <mat-radio-button [value]="true">Yes</mat-radio-button>
+                        <mat-radio-button [value]="false">No</mat-radio-button>
+                        <mat-error>Must select one option</mat-error>
+                    </mat-radio-group>
+                </section>
+                <mat-form-field *ngIf="!isMailingAddressSame" style="display: block;">
+                    <mat-label style="font-family: Inter;">Mailing Address</mat-label>
+                    <textarea formControlName="mailAddress" matInput></textarea>
+                    <mat-error>Mailing Address field is required</mat-error>
                 </mat-form-field>
                 <div style="display: flex; justify-content: flex-end;">
-                    <button mat-raised-button style="background-color: #76B7FF; color: white; font-size: 16px; margin-left: 20px; font-family: Inter !important;" (click)="attemptToSignUp()">Sign Up</button>
+                    <button mat-raised-button style="background-color: #76B7FF; color: white; font-size: 16px; margin-left: 20px; font-family: Inter;" (click)="attemptToSignUp()">Sign Up</button>
                 </div>
             </form>
         </div>
 
         <div style="display: flex; justify-content: center; margin-top: 10px;">
-            Do you have an account? <button class="linkButton" (click)="signingUp = !signingUp">Login Here</button>
+            Do you have an account? <button class="linkButton" (click)="hideMailingAddress('two')">Login Here</button>
         </div>
     </div>
     
